@@ -62,7 +62,7 @@ extension Snapshotting where Value == NSView, Format == NSImage {
           callback(image)
           views.forEach { $0.removeFromSuperview() }
           view.appearance = initialAppearance
-          view.frame = initialFrame
+//          view.frame = initialFrame
 
           if windowForDrawing != nil {
             view.removeFromSuperview()
