@@ -29,7 +29,6 @@ extension Snapshotting where Value == NSView, Format == NSImage {
   ) -> Snapshotting {
     return SimplySnapshotting.image(precision: precision).asyncPullback { view in
 
-      let initialFrame = view.frame
       if let size = size { view.frame.size = size }
       guard view.frame.width > 0, view.frame.height > 0 else {
         fatalError("View not renderable to image at size \(view.frame.size)")
@@ -62,7 +61,6 @@ extension Snapshotting where Value == NSView, Format == NSImage {
           callback(image)
           views.forEach { $0.removeFromSuperview() }
           view.appearance = initialAppearance
-//          view.frame = initialFrame
 
           if windowForDrawing != nil {
             view.removeFromSuperview()
